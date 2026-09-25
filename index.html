@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ITパスポート演習帳</title>
+<meta name="description" content="ITパスポート試験の3分野（ストラテジ・マネジメント・テクノロジ）の要点まとめと四肢択一の演習問題。分野別・ランダム・ミニ模試・復習モードつき。">
+<meta property="og:title" content="ITパスポート演習帳">
+<meta property="og:description" content="ITパスポート試験の要点まとめと演習問題。スマホでも使えます。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F6E62'/%3E%3Ctext x='32' y='44' font-size='34' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3E%E3%82%A2%3C/text%3E%3C/svg%3E">
+<style>
+html{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#F2F4F1; --panel:#FFFFFF; --ink:#18221F; --muted:#5B6A65; --line:#D7DDD9;
+  --accent:#0F6E62; --accent-ink:#FFFFFF; --accent-soft:#DCEEEA;
+  --st:#A85A1B; --st-soft:#F6E7DA;
+  --ma:#3A55A0; --ma-soft:#E1E7F6;
+  --te:#0F6E62; --te-soft:#DCEEEA;
+  --ok:#237A47; --ok-soft:#DDF1E3; --ng:#B3362B; --ng-soft:#F8E0DD;
+  --shadow:0 1px 2px rgba(24,34,31,.06),0 4px 16px rgba(24,34,31,.05);
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-head:"Zen Kaku Gothic New","BIZ UDPGothic","Hiragino Sans",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111816; --panel:#19221F; --ink:#E6ECE9; --muted:#9AA9A4; --line:#2C3833;
+    --accent:#3FB8A6; --accent-ink:#0B1412; --accent-soft:#1C3531;
+    --st:#E09A5E; --st-soft:#3A2A1C; --ma:#8EA6EA; --ma-soft:#222B45; --te:#3FB8A6; --te-soft:#1C3531;
+    --ok:#5FCB8A; --ok-soft:#183324; --ng:#F07B6F; --ng-soft:#3D1F1C;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111816; --panel:#19221F; --ink:#E6ECE9; --muted:#9AA9A4; --line:#2C3833;
+  --accent:#3FB8A6; --accent-ink:#0B1412; --accent-soft:#1C3531;
+  --st:#E09A5E; --st-soft:#3A2A1C; --ma:#8EA6EA; --ma-soft:#222B45; --te:#3FB8A6; --te-soft:#1C3531;
+  --ok:#5FCB8A; --ok-soft:#183324; --ng:#F07B6F; --ng-soft:#3D1F1C;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75;padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.35}
+h1{font-size:26px;font-weight:900;letter-spacing:.02em}
+h2{font-size:18px;font-weight:700}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.label{font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:12px}
+header.top .sub{font-size:13px;color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{border:1.5px solid var(--ink);background:var(--panel);padding:10px 16px;border-radius:6px;font-weight:700;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border-color:var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:not(:disabled):hover{transform:translateY(-1px)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}
+
+/* summary */
+.summary{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.gauge{width:108px;height:108px}
+.fields{display:flex;flex-direction:column;gap:12px}
+.frow{display:grid;grid-template-columns:7.5em 1fr 4.2em;gap:10px;align-items:center;font-size:14px}
+.bar{height:10px;background:var(--line);border-radius:5px;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:5px}
+.bar .pass{position:absolute;top:-3px;bottom:-3px;left:60%;width:2px;background:var(--ink);opacity:.5}
+.frow .v{text-align:right}
+.note{font-size:12px;color:var(--muted)}
+
+/* modes */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mode{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.mode:hover{border-color:var(--ink)}
+.mode strong{font-family:var(--f-head);font-size:16px}
+.mode span{font-size:13px;color:var(--muted);line-height:1.6}
+.mode .tag{align-self:flex-start;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:.06em}
+.tag.st{background:var(--st-soft);color:var(--st)} .tag.ma{background:var(--ma-soft);color:var(--ma)} .tag.te{background:var(--te-soft);color:var(--te)}
+.tag.all{background:var(--ink);color:var(--bg)} .tag.rv{background:var(--ng-soft);color:var(--ng)}
+
+.info dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:12px 0 0;font-size:14px}
+.info dt{color:var(--muted)}
+.info dd{margin:0}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-size:17px;line-height:1.85;margin:0;white-space:pre-wrap}
+.choices{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.choice{display:grid;grid-template-columns:2.2em 1fr;gap:10px;align-items:start;text-align:left;background:var(--panel);border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;line-height:1.65}
+.choice:not(:disabled):hover{border-color:var(--ink)}
+.choice .k{font-family:var(--f-head);font-weight:900;width:1.9em;height:1.9em;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:14px}
+.choice.ok{border-color:var(--ok);background:var(--ok-soft)}
+.choice.ok .k{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.choice.ng{border-color:var(--ng);background:var(--ng-soft)}
+.choice.ng .k{background:var(--ng);border-color:var(--ng);color:var(--panel)}
+.choice:disabled{cursor:default}
+.explain{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.verdict{font-family:var(--f-head);font-weight:900;font-size:18px}
+.verdict.ok{color:var(--ok)} .verdict.ng{color:var(--ng)}
+.explain p{margin:0}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:16px}
+.timer{font-size:14px}
+
+/* result */
+.score{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.score .big{font-family:var(--f-mono);font-size:48px;font-weight:700;line-height:1}
+.wrong-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.wrong-list .w{border-left:3px solid var(--ng);padding:4px 0 4px 12px;font-size:14px}
+.wrong-list .w b{display:block}
+/* notes */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.tab{background:none;border:none;border-bottom:3px solid transparent;padding:8px 12px;font-weight:700;color:var(--muted);margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--tc)}
+.toc{display:flex;gap:6px;flex-wrap:wrap}
+.toc a{font-size:12px;padding:3px 10px;border:1px solid var(--line);border-radius:99px;color:var(--ink);text-decoration:none;background:var(--panel)}
+.toc a:hover{border-color:var(--ink)}
+.nsec{display:flex;flex-direction:column;gap:12px;scroll-margin-top:16px}
+.nsec h3{font-size:17px;display:flex;align-items:baseline;gap:10px}
+.nsec h3 .no{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.nsec p.lead{margin:0;color:var(--muted);font-size:14px}
+.terms{display:grid;grid-template-columns:minmax(7em,max-content) 1fr;border-top:1px solid var(--line)}
+.terms dt,.terms dd{padding:10px 0;border-bottom:1px solid var(--line);margin:0}
+.terms dt{font-weight:700;padding-right:16px}
+.terms dd{font-size:14px;line-height:1.7}
+.formula{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.formula .fx{font-family:var(--f-mono);font-size:14px;font-weight:700;overflow-x:auto;white-space:nowrap}
+.formula .ex{font-size:13px;color:var(--muted)}
+.tip{font-size:13px;border-left:3px solid var(--tc);padding:2px 0 2px 12px}
+@media (max-width:520px){.terms{grid-template-columns:1fr}.terms dt{border-bottom:none;padding-bottom:0}.terms dd{padding-top:2px}}
+footer{font-size:12px;color:var(--muted);line-height:1.7}
+.resetline{display:flex;justify-content:flex-end}
+.linkbtn{background:none;border:none;color:var(--muted);text-decoration:underline;font-size:12px;padding:4px}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+
+@media (max-width:520px){
+  .summary{grid-template-columns:1fr;justify-items:center}
+  .fields{width:100%}
+  h1{font-size:22px}
+  .frow{grid-template-columns:6.5em 1fr 3.8em}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.btn:hover{transform:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+/* ===== 問題データ（オリジナル作成。出題範囲はITパスポート試験の3分野に準拠） ===== */
+const Q = [
+/* ---------- ストラテジ系 ---------- */
+{f:"st",t:"財務指標",q:"ROE（自己資本利益率）を求める式として、適切なものはどれか。",c:["当期純利益 ÷ 自己資本","当期純利益 ÷ 総資産","営業利益 ÷ 売上高","自己資本 ÷ 総資本"],e:"ROEは株主が出した資本（自己資本）でどれだけ利益を上げたかを示す指標で、当期純利益÷自己資本で求めます。当期純利益÷総資産はROA、自己資本÷総資本は自己資本比率です。"},
+{f:"st",t:"損益分岐点",q:"固定費が400万円、変動費率が60%の製品がある。損益分岐点売上高は何万円か。",c:["1,000万円","667万円","640万円","240万円"],e:"損益分岐点売上高＝固定費÷(1−変動費率)＝400÷(1−0.6)＝400÷0.4＝1,000万円です。"},
+{f:"st",t:"経営戦略",q:"SWOT分析において、内部環境の分析に該当する要素の組合せはどれか。",c:["強み と 弱み","機会 と 脅威","強み と 機会","弱み と 脅威"],e:"SWOTのうち、強み(Strengths)・弱み(Weaknesses)は自社の内部環境、機会(Opportunities)・脅威(Threats)は市場や競合などの外部環境です。"},
+{f:"st",t:"経営戦略",q:"PPM（プロダクトポートフォリオマネジメント）で、市場成長率が高く、市場占有率も高い事業の分類はどれか。",c:["花形","金のなる木","問題児","負け犬"],e:"成長率高・シェア高は「花形」。成長率低・シェア高は「金のなる木」、成長率高・シェア低は「問題児」、どちらも低いのが「負け犬」です。"},
+{f:"st",t:"知的財産権",q:"著作権法で保護の対象となるものはどれか。",c:["プログラムのソースコード","プログラム言語","アルゴリズム","通信プロトコル（規約）"],e:"プログラムそのもの（表現）は著作物として保護されますが、プログラム言語・規約・解法（アルゴリズム）は著作権法の保護対象外と明記されています。"},
+{f:"st",t:"知的財産権",q:"日本の特許権の存続期間として、原則的なものはどれか。",c:["出願日から20年","登録日から10年","出願日から10年","著作者の死後70年"],e:"特許権の存続期間は原則として出願日から20年です（医薬品などは延長登録制度あり）。死後70年は著作権の原則的な保護期間です。"},
+{f:"st",t:"セキュリティ関連法規",q:"不正アクセス禁止法で処罰の対象となる行為はどれか。",c:["他人のIDとパスワードを無断で使い、ネットワーク経由でシステムにログインする","自分のPCに保存されたファイルを誤って削除する","公開されているWebページを閲覧して内容をメモする","自社のサーバに管理者として正規にログインする"],e:"他人の識別符号（ID・パスワード）を無断で入力してアクセス制御のかかったシステムを利用する行為は「不正アクセス行為」に当たります。"},
+{f:"st",t:"個人情報保護",q:"個人情報保護法における「要配慮個人情報」に該当するものはどれか。",c:["病歴","氏名","メールアドレス","勤務先の部署名"],e:"要配慮個人情報は、人種・信条・社会的身分・病歴・犯罪の経歴など、不当な差別や偏見が生じないよう特に配慮が必要な情報です。取得には原則として本人の同意が必要です。"},
+{f:"st",t:"労働関連法規",q:"労働者派遣において、派遣労働者に対して業務上の指揮命令を行うのは誰か。",c:["派遣先","派遣元","派遣労働者自身","厚生労働大臣"],e:"雇用関係は派遣元と派遣労働者の間にありますが、業務の指揮命令は派遣先が行います。請負契約では、発注者は請負側の労働者に直接指揮命令できません。"},
+{f:"st",t:"企業活動",q:"災害やシステム障害などが発生しても、重要な業務を継続・早期復旧するために事前に策定する計画はどれか。",c:["BCP","BPR","CSR","SLA"],e:"BCP（事業継続計画）の説明です。BPRは業務プロセスの抜本的な再設計、CSRは企業の社会的責任、SLAはサービスレベル合意書です。"},
+{f:"st",t:"業務分析",q:"売上高の大きい順に商品を並べ、累積構成比から重点管理する商品を絞り込む手法に用いる図はどれか。",c:["パレート図","散布図","特性要因図","管理図"],e:"パレート図を使ったABC分析の説明です。累積比率が70%程度までをA、90%程度までをBのように分類して重点管理します。"},
+{f:"st",t:"システム戦略",q:"原材料の調達から生産・物流・販売までの一連の流れを、企業間で連携して全体最適を図る手法はどれか。",c:["SCM","CRM","ERP","SFA"],e:"SCM（サプライチェーンマネジメント）の説明です。CRMは顧客関係管理、ERPは基幹業務の統合管理、SFAは営業支援です。"},
+{f:"st",t:"システム企画",q:"システムの調達で、発注先候補の企業に対して具体的な提案書の提出を依頼するために提示する文書はどれか。",c:["RFP","RFI","NDA","SLA"],e:"RFP（提案依頼書）の説明です。RFI（情報提供依頼書）は、RFPの前段階で技術動向や製品情報などの提供を求める文書です。"},
+{f:"st",t:"財務諸表",q:"貸借対照表の構成として、常に成り立つ関係はどれか。",c:["資産 ＝ 負債 ＋ 純資産","資産 ＝ 収益 − 費用","負債 ＝ 資産 ＋ 純資産","純資産 ＝ 収益 ＋ 負債"],e:"貸借対照表は左側（借方）に資産、右側（貸方）に負債と純資産を記載し、左右の合計は必ず一致します。"},
+{f:"st",t:"経営管理",q:"最終目標の達成度を測る指標をKGIとしたとき、その達成に向けた中間プロセスの達成度を測る指標はどれか。",c:["KPI","KSF","ROI","CSF"],e:"KPI（重要業績評価指標）はプロセスの進み具合を測る指標です。KGIは最終目標、KSF/CSFは成功のために重要な要因、ROIは投資利益率です。"},
+{f:"st",t:"ビジネスインダストリ",q:"インターネット販売で、個々の売上は小さいニッチ商品を多数そろえることで、全体として大きな売上を得る考え方はどれか。",c:["ロングテール","コモディティ化","ブルーオーシャン","オムニチャネル"],e:"販売数量の少ない商品群が恐竜の長い尾のように続くことから「ロングテール」と呼ばれます。在庫・陳列コストの小さいネット販売で成り立ちやすい考え方です。"},
+
+/* ---------- マネジメント系 ---------- */
+{f:"ma",t:"プロジェクトマネジメント",q:"プロジェクトの作業を階層的に細かく分解し、管理しやすい単位にまとめた図表はどれか。",c:["WBS","アローダイアグラム","ガントチャート","DFD"],e:"WBS（Work Breakdown Structure）の説明です。分解された最下位の作業単位をワークパッケージと呼びます。"},
+{f:"ma",t:"スケジュール管理",q:"作業Aの後に作業BとCを並行して行い、BとCの両方が終わったら作業Dを行う。所要日数がA=3日、B=4日、C=6日、D=2日のとき、プロジェクト全体の最短所要日数は何日か。",c:["11日","9日","13日","15日"],e:"経路A→B→Dは9日、A→C→Dは11日。Dは両方の完了を待つため、長い方の経路（クリティカルパス）A→C→Dの11日が最短所要日数です。"},
+{f:"ma",t:"サービスマネジメント",q:"ITサービスの提供者と利用者の間で、サービスの品質や範囲について合意した内容を文書にしたものはどれか。",c:["SLA","SLM","RFP","WBS"],e:"SLA（サービスレベル合意書）の説明です。SLMはSLAで合意した水準を維持・改善するための管理活動を指します。"},
+{f:"ma",t:"サービスマネジメント",q:"インシデント管理の主な目的として、適切なものはどれか。",c:["中断したサービスをできるだけ迅速に回復させる","障害の根本原因を突き止めて再発を防止する","システムの構成要素の情報を正確に維持する","変更を安全かつ効率的に実施する"],e:"インシデント管理は「まずサービスを早く元に戻す」ことが目的です。根本原因の究明と再発防止は問題管理、構成要素の管理は構成管理、変更の実施は変更管理の役割です。"},
+{f:"ma",t:"サービスマネジメント",q:"利用者からの問合せや障害報告を一元的に受け付ける窓口（SPOC）として機能する組織はどれか。",c:["サービスデスク","システム監査部門","プロジェクトマネジメントオフィス","品質保証部門"],e:"サービスデスクは、利用者にとっての単一窓口（Single Point of Contact）として問合せを受け付け、記録し、必要に応じて専門部署へエスカレーションします。"},
+{f:"ma",t:"開発手法",q:"要件定義、設計、プログラミング、テストの各工程を順番に進め、原則として前工程に戻らない開発手法はどれか。",c:["ウォーターフォールモデル","スパイラルモデル","プロトタイピングモデル","アジャイル開発"],e:"ウォーターフォールモデルの説明です。工程ごとに成果物を確定させるため進捗を管理しやすい一方、後工程での仕様変更に弱いという特徴があります。"},
+{f:"ma",t:"開発手法",q:"アジャイル開発の手法の一つであるスクラムで、一定の短い期間を区切って開発を繰り返す単位を何と呼ぶか。",c:["スプリント","マイルストーン","ワークパッケージ","フェーズゲート"],e:"スクラムでは1〜4週間程度の「スプリント」を単位に、計画・開発・レビュー・振り返りを繰り返します。"},
+{f:"ma",t:"テスト",q:"プログラムの内部構造は考慮せず、仕様書どおりに入力に対して正しい出力が得られるかを確認するテスト手法はどれか。",c:["ブラックボックステスト","ホワイトボックステスト","回帰テスト","負荷テスト"],e:"ブラックボックステストの説明です。同値分割や限界値分析がよく使われます。内部の命令や分岐を網羅するように確認するのはホワイトボックステストです。"},
+{f:"ma",t:"テスト",q:"プログラムを修正した際に、修正箇所以外に悪影響が出ていないかを確認するテストはどれか。",c:["回帰テスト（リグレッションテスト）","単体テスト","受入れテスト","ペネトレーションテスト"],e:"回帰テストは、変更によって既存の正常な機能が壊れていないか（デグレードしていないか）を確認します。"},
+{f:"ma",t:"テスト",q:"システム開発における一般的なテストの実施順序として、適切なものはどれか。",c:["単体テスト → 結合テスト → システムテスト → 運用テスト","結合テスト → 単体テスト → システムテスト → 運用テスト","システムテスト → 単体テスト → 結合テスト → 運用テスト","運用テスト → システムテスト → 結合テスト → 単体テスト"],e:"小さい単位から順に確認します。モジュール単体→モジュール間の連携→システム全体→実際の運用環境、という順です。"},
+{f:"ma",t:"システム監査",q:"システム監査人に求められる要件として、最も重要なものはどれか。",c:["監査対象から独立していること","監査対象システムの開発に携わっていること","監査対象部門の責任者であること","情報システム部門に所属していること"],e:"システム監査人は、監査対象から外観上も精神上も独立した立場で、客観的に点検・評価する必要があります。"},
+{f:"ma",t:"内部統制",q:"内部統制において、一人の担当者が取引の承認・記録・現物管理をすべて担うことを避け、担当を分けて相互にけん制させる考え方はどれか。",c:["職務分掌","IT統制","リスクアセスメント","コンプライアンス"],e:"職務分掌の説明です。業務を複数人で分担することで、不正や誤りを防止・発見しやすくします。"},
+{f:"ma",t:"プロジェクトマネジメント",q:"プロジェクトの特徴として、適切なものはどれか。",c:["開始と終了が明確な有期性の活動で、独自の成果物を生み出す","同じ作業を定常的に繰り返す業務である","期限を設けず継続して行う活動である","成果物が毎回同一になるよう標準化された活動である"],e:"プロジェクトは「有期性」と「独自性」が特徴です。定常的に繰り返す業務は「定常業務（オペレーション）」と呼ばれます。"},
+{f:"ma",t:"ファシリティマネジメント",q:"停電時に、サーバが安全にシャットダウンできるまでの間、一時的に電力を供給する装置はどれか。",c:["UPS","CVCF","NAS","KVM"],e:"UPS（無停電電源装置）の説明です。長時間の停電に備える場合は、自家発電装置と組み合わせます。"},
+{f:"ma",t:"開発手法",q:"開発チームと運用チームが密に連携し、ツールによる自動化などを活用して、システムの迅速な開発とリリースを継続的に行う考え方はどれか。",c:["DevOps","リバースエンジニアリング","BPO","MaaS"],e:"DevOpsはDevelopment（開発）とOperations（運用）を組み合わせた言葉です。継続的インテグレーション／デリバリー（CI/CD）とあわせて使われます。"},
+{f:"ma",t:"サービスマネジメント",q:"インシデントの記録を分析して根本原因を突き止め、恒久的な解決策を検討するプロセスはどれか。",c:["問題管理","インシデント管理","リリース管理","サービス継続管理"],e:"問題管理の説明です。インシデント管理が「暫定的にでも早く回復」を目指すのに対し、問題管理は「原因を取り除いて再発を防ぐ」ことを目指します。"},
+
+/* ---------- テクノロジ系 ---------- */
+{f:"te",t:"基数変換",q:"2進数の 1011 を10進数で表したものはどれか。",c:["11","13","9","7"],e:"1011₂ ＝ 1×8 ＋ 0×4 ＋ 1×2 ＋ 1×1 ＝ 11 です。"},
+{f:"te",t:"情報量",q:"8ビットで表現できる情報は何通りか。",c:["256通り","128通り","64通り","16通り"],e:"1ビットで2通りなので、8ビットでは2⁸＝256通りです。"},
+{f:"te",t:"論理演算",q:"論理積（AND）で、結果が「1」（真）になる入力の組合せはどれか。",c:["A=1, B=1","A=1, B=0","A=0, B=1","A=0, B=0"],e:"ANDは両方が1のときだけ1になります。どちらか一方でも1なら1になるのは論理和（OR）です。"},
+{f:"te",t:"信頼性",q:"稼働率0.9の装置2台を直列に接続したシステム全体の稼働率はどれか。",c:["0.81","0.99","0.90","0.18"],e:"直列接続は両方が動いているときだけ稼働するため、0.9×0.9＝0.81 です。"},
+{f:"te",t:"信頼性",q:"稼働率0.9の装置2台を並列に接続し、どちらか1台が動けばよいシステムの稼働率はどれか。",c:["0.99","0.81","0.90","1.80"],e:"両方が同時に止まる確率は(1−0.9)×(1−0.9)＝0.01 なので、稼働率は 1−0.01＝0.99 です。"},
+{f:"te",t:"ストレージ",q:"2台のディスクに同じデータを書き込み、1台が故障してもデータを失わないようにするRAIDの方式はどれか。",c:["RAID1","RAID0","RAID5","JBOD"],e:"RAID1（ミラーリング）の説明です。RAID0はストライピングで高速化するが冗長性はなく、RAID5はパリティを分散して記録します。"},
+{f:"te",t:"暗号技術",q:"公開鍵暗号方式で、AさんがBさんだけに読めるようにメッセージを暗号化して送るとき、暗号化に使う鍵はどれか。",c:["Bさんの公開鍵","Bさんの秘密鍵","Aさんの秘密鍵","Aさんの公開鍵"],e:"受信者Bの公開鍵で暗号化すれば、対になるBの秘密鍵を持つBさんだけが復号できます。"},
+{f:"te",t:"暗号技術",q:"デジタル署名を利用することで確認できることとして、適切なものはどれか。",c:["送信者本人が作成したことと、内容が改ざんされていないこと","通信内容が第三者に盗聴されていないこと","受信者が確実にメッセージを読んだこと","メッセージが圧縮されて送られたこと"],e:"デジタル署名は送信者の秘密鍵で作成し、受信者は送信者の公開鍵で検証します。これにより「なりすまし」と「改ざん」を検知できます。盗聴の防止（機密性）は暗号化の役割です。"},
+{f:"te",t:"情報セキュリティ",q:"情報セキュリティの3要素（CIA）のうち、「必要なときに、認められた利用者が情報やシステムを使える状態」を表すものはどれか。",c:["可用性","機密性","完全性","真正性"],e:"可用性（Availability）の説明です。機密性（Confidentiality）は許可された人だけが見られること、完全性（Integrity）は情報が正確で改ざんされていないことです。"},
+{f:"te",t:"脅威",q:"実在する金融機関などを装ったメールで偽のWebサイトに誘導し、IDやパスワードを入力させて盗み取る攻撃はどれか。",c:["フィッシング","DoS攻撃","ショルダーハッキング","ブルートフォース攻撃"],e:"フィッシングの説明です。ショルダーハッキングは肩越しに画面や入力を盗み見る行為、ブルートフォース攻撃はパスワードを総当たりで試す攻撃です。"},
+{f:"te",t:"マルウェア",q:"感染したPCのファイルを暗号化して使えなくし、元に戻す代わりに金銭を要求するマルウェアはどれか。",c:["ランサムウェア","スパイウェア","キーロガー","アドウェア"],e:"ランサムウェアの説明です。対策として、ネットワークから切り離した場所へのバックアップが有効です。"},
+{f:"te",t:"攻撃手法",q:"Webアプリケーションの入力欄に不正な命令文を入力し、データベースを不正に操作する攻撃はどれか。",c:["SQLインジェクション","クロスサイトスクリプティング","DNSキャッシュポイズニング","ゼロデイ攻撃"],e:"SQLインジェクションの説明です。対策には、プレースホルダ（バインド機構）の利用などがあります。"},
+{f:"te",t:"ネットワーク",q:"ドメイン名とIPアドレスを対応付ける仕組みはどれか。",c:["DNS","DHCP","NAT","SMTP"],e:"DNSの説明です。DHCPはIPアドレスを自動割当てする仕組み、NATはプライベートIPとグローバルIPを変換する仕組み、SMTPはメール送信のプロトコルです。"},
+{f:"te",t:"ネットワーク",q:"IPv6のアドレス長は何ビットか。",c:["128ビット","32ビット","64ビット","256ビット"],e:"IPv4は32ビット、IPv6は128ビットです。IPv4アドレスの枯渇に対応するため、IPv6ではアドレス空間が大幅に拡張されました。"},
+{f:"te",t:"データベース",q:"関係データベースで、表の中の行（レコード）を一意に識別するために設定する項目はどれか。",c:["主キー","外部キー","インデックス","ビュー"],e:"主キーは重複もNULLも許されず、行を一意に特定します。外部キーは他の表の主キーを参照して表どうしを関連付ける項目です。"},
+{f:"te",t:"データベース",q:"関係データベースの設計で「正規化」を行う主な目的はどれか。",c:["データの重複をなくし、更新時の不整合を防ぐ","検索時に表を結合する回数を減らす","データベースのバックアップを高速化する","アクセス権限を利用者ごとに設定する"],e:"正規化は、同じデータを複数箇所に持たないよう表を分割し、更新・削除時の矛盾（更新時異状）を防ぐことが目的です。"},
+{f:"te",t:"ハードウェア",q:"CPUと主記憶装置の処理速度の差を埋めるために、その間に置かれる高速な記憶装置はどれか。",c:["キャッシュメモリ","仮想記憶","補助記憶装置","ROM"],e:"キャッシュメモリの説明です。頻繁に使うデータを高速なメモリに置くことで、主記憶へのアクセスを減らして処理を速くします。"},
+{f:"te",t:"データ構造",q:"最後に格納したデータを最初に取り出す（LIFO）データ構造はどれか。",c:["スタック","キュー","リスト","木構造"],e:"スタックはLIFO（Last In First Out）。先に入れたものを先に取り出すFIFO（First In First Out）はキューです。"},
+{f:"te",t:"AI",q:"正解ラベル付きのデータを学習させ、未知のデータに対するラベルを予測できるようにする機械学習の方式はどれか。",c:["教師あり学習","教師なし学習","強化学習","転移学習"],e:"教師あり学習の説明です。教師なし学習は正解ラベルなしでデータの構造（グループなど）を見つけ、強化学習は試行錯誤で報酬を最大化する行動を学びます。"},
+{f:"te",t:"IoT",q:"IoTで使われる通信方式のうち、消費電力が小さく、広い範囲をカバーできる無線通信技術の総称はどれか。",c:["LPWA","NFC","Bluetooth","Wi-Fi"],e:"LPWA（Low Power Wide Area）の説明です。数km以上の広域をカバーでき、センサーなどの電池駆動デバイスに向いています。"},
+];
+Q.forEach((q,i)=>q.id=i);
+
+const FIELDS={st:{name:"ストラテジ系",short:"ストラテジ",color:"var(--st)"},ma:{name:"マネジメント系",short:"マネジメント",color:"var(--ma)"},te:{name:"テクノロジ系",short:"テクノロジ",color:"var(--te)"}};
+const KANA=["ア","イ","ウ","エ"];
+
+/* ===== 分野別 要点まとめ ===== */
+/* s: 見出し, l: 概要, fx: 公式 [式, 例], d: 用語 [用語, 説明], tip: 覚え方・ひっかけ注意 */
+const NOTES={
+st:[
+{s:"財務・会計",l:"財務諸表の構造と、計算問題で出る指標。",
+ fx:[["資産 ＝ 負債 ＋ 純資産","貸借対照表（B/S）の左右は必ず一致する"],
+     ["損益分岐点売上高 ＝ 固定費 ÷（1 − 変動費率）","固定費400、変動費率60% → 400 ÷ 0.4 ＝ 1,000"],
+     ["変動費率 ＝ 変動費 ÷ 売上高",""],
+     ["ROE ＝ 当期純利益 ÷ 自己資本","株主の出資でどれだけ稼いだか"],
+     ["ROA ＝ 当期純利益 ÷ 総資産","会社の資産全体でどれだけ稼いだか"]],
+ d:[["貸借対照表（B/S）","ある時点の財政状態。資産・負債・純資産を示す"],
+    ["損益計算書（P/L）","一定期間の経営成績。売上総利益 → 営業利益 → 経常利益 → 税引前当期純利益 → 当期純利益の順に計算する"],
+    ["キャッシュフロー計算書","一定期間の現金の出入り。営業・投資・財務の3区分"],
+    ["固定費／変動費","売上に関係なく一定の費用（家賃・人件費など）／売上に比例して増える費用（材料費など）"]],
+ tip:"ROEは「自己資本」、ROAは「総資産」。分母の違いで区別する。"},
+{s:"経営戦略",l:"自社の立ち位置を分析するフレームワーク。",
+ d:[["SWOT分析","強み・弱み（内部環境）と機会・脅威（外部環境）を整理する"],
+    ["3C分析","顧客（Customer）・競合（Competitor）・自社（Company）の3視点で分析する"],
+    ["PPM","市場成長率と市場占有率で事業を4つに分類する。花形（高・高）、金のなる木（低成長・高シェア）、問題児（高成長・低シェア）、負け犬（低・低）"],
+    ["コアコンピタンス","他社がまねできない、自社の中核となる強み"],
+    ["ブルーオーシャン戦略","競争のない新しい市場を切り開く戦略。競争の激しい既存市場はレッドオーシャン"],
+    ["ロングテール","売れ数の少ないニッチ商品を多数そろえ、全体で大きな売上を得る。ネット販売で成り立ちやすい"]],
+ tip:"PPMの「金のなる木」は成長率が低い。「稼げる＝成長している」と混同しない。"},
+{s:"経営管理と指標",l:"目標とその達成度の測り方。",
+ d:[["KGI","重要目標達成指標。最終的なゴール（例：売上高○億円）"],
+    ["KPI","重要業績評価指標。KGIに向けた中間プロセスの達成度（例：商談件数）"],
+    ["CSF（KSF）","重要成功要因。目標達成のために最も重要な要因"],
+    ["バランススコアカード","財務・顧客・業務プロセス・学習と成長の4つの視点で業績を評価する"],
+    ["BCP","事業継続計画。災害や障害時でも重要業務を継続・早期復旧するための計画"],
+    ["CSR","企業の社会的責任"]]},
+{s:"業務分析の図",l:"QC七つ道具を中心に、図の名前と用途を対応させる。",
+ d:[["パレート図","項目を大きい順に並べた棒グラフと累積比率の折れ線。ABC分析で重点管理対象を決める"],
+    ["特性要因図","結果（特性）と原因の関係を魚の骨の形で整理する"],
+    ["散布図","2つのデータの相関関係を点で表す"],
+    ["管理図","データの推移と管理限界線から、工程が安定しているかを判断する"],
+    ["ヒストグラム","データのばらつき（分布）を柱状グラフで表す"]]},
+{s:"システム戦略と調達",l:"業務システムの種類と、調達の流れ。",
+ d:[["SCM","サプライチェーンマネジメント。調達〜生産〜物流〜販売を企業間で連携し全体最適を図る"],
+    ["CRM","顧客関係管理。顧客情報を一元管理し、長期的な関係を築く"],
+    ["ERP","企業資源計画。会計・人事・生産などの基幹業務を統合管理する"],
+    ["SFA","営業支援システム。商談や営業活動の情報を共有する"],
+    ["BPR","業務プロセスを根本から見直して再設計する"],
+    ["RFI → RFP","RFI（情報提供依頼書）で情報を集め、RFP（提案依頼書）で具体的な提案を依頼する"]],
+ tip:"調達の順番は「RFI → RFP → 提案書 → 選定 → 契約」。"},
+{s:"法務",l:"知的財産権・セキュリティ関連法規・労働関連法規。",
+ d:[["著作権","創作した時点で自動的に発生（登録不要）。保護期間は原則として著作者の死後70年。プログラムは保護対象だが、プログラム言語・規約・アルゴリズムは対象外"],
+    ["特許権","発明を保護する。出願・登録が必要。存続期間は原則として出願日から20年"],
+    ["不正アクセス禁止法","他人のID・パスワードの無断使用、セキュリティホールを突いた侵入、他人のIDを無断で第三者に教える行為などを禁止"],
+    ["要配慮個人情報","人種・信条・病歴・犯罪の経歴など。取得には原則として本人の同意が必要"],
+    ["労働者派遣","雇用関係は派遣元、指揮命令は派遣先"],
+    ["請負","仕事の完成を約束する契約。発注者は請負側の労働者に直接指揮命令できない"]],
+ tip:"派遣と請負の違いは「誰が指揮命令するか」。請負で発注者が直接指示すると偽装請負になる。"}
+],
+ma:[
+{s:"プロジェクトマネジメント",l:"計画・スケジュールの立て方。",
+ d:[["プロジェクト","有期性（始まりと終わりがある）と独自性（毎回違う成果物）をもつ活動。繰り返し行う業務は定常業務"],
+    ["WBS","作業を階層的に分解した図。最下位の作業単位をワークパッケージと呼ぶ"],
+    ["アローダイアグラム","作業の順序関係と所要日数を矢印で表す図"],
+    ["クリティカルパス","所要日数が最も長い経路。この経路上の作業が遅れると、全体が遅れる"],
+    ["ガントチャート","横軸を時間にして、作業の予定と実績を横棒で表す"]],
+ fx:[["全体の最短所要日数 ＝ クリティカルパスの日数","合流点では、長い方の経路を待つ"]],
+ tip:"アローダイアグラムの計算は、全経路の合計を出して最大のものを選べば確実。"},
+{s:"開発手法",l:"工程の進め方の違い。",
+ d:[["ウォーターフォール","要件定義 → 設計 → 開発 → テストを順に進め、原則前工程に戻らない。進捗管理しやすいが仕様変更に弱い"],
+    ["プロトタイピング","試作品を早い段階で作り、利用者に確認してもらいながら進める"],
+    ["スパイラル","システムを分割し、設計〜テストを繰り返しながら徐々に完成度を上げる"],
+    ["アジャイル","短い期間で開発を繰り返し、変化に柔軟に対応する。代表的な手法にスクラム、XP"],
+    ["スクラム","1〜4週間程度の「スプリント」を単位に開発を繰り返す"],
+    ["DevOps","開発と運用が連携し、自動化などで迅速なリリースを継続する"]]},
+{s:"テスト",l:"テストの順序と手法。",
+ d:[["実施順序","単体テスト → 結合テスト → システムテスト → 運用（受入れ）テスト"],
+    ["ブラックボックステスト","内部構造を見ず、仕様どおりの入出力になるかを確認する。同値分割・限界値分析"],
+    ["ホワイトボックステスト","内部構造（命令・分岐）を網羅するように確認する"],
+    ["回帰（リグレッション）テスト","修正によって、ほかの部分に悪影響が出ていないかを確認する"],
+    ["受入れテスト","発注者（利用者）が、要件を満たしているかを確認する"]],
+ tip:"「仕様」ならブラック、「内部構造」ならホワイト。"},
+{s:"サービスマネジメント",l:"ITサービスの運用管理。ITILの考え方がベース。",
+ d:[["SLA","サービスレベル合意書。提供者と利用者でサービスの品質・範囲を合意した文書"],
+    ["SLM","サービスレベル管理。SLAの水準を維持・改善する活動"],
+    ["サービスデスク","問合せを一元的に受け付ける単一窓口（SPOC）"],
+    ["インシデント管理","中断したサービスをできるだけ早く回復させる（暫定対応でもよい）"],
+    ["問題管理","インシデントの根本原因を突き止めて再発を防止する"],
+    ["変更管理／リリース管理","変更を安全に計画・承認する／承認された変更を本番環境へ展開する"],
+    ["構成管理","ハードウェア・ソフトウェアなどの構成要素の情報を正確に維持する"]],
+ tip:"「迅速な回復」はインシデント管理、「根本原因」は問題管理。"},
+{s:"監査・内部統制",l:"チェックする仕組み。",
+ d:[["システム監査","独立した立場のシステム監査人が、情報システムを点検・評価し、改善を助言する"],
+    ["監査人の独立性","監査対象から外観上も精神上も独立していることが必要"],
+    ["内部統制","業務を適正に行うために、組織内に整備・運用される仕組み"],
+    ["職務分掌","承認・記録・保管などの担当を分け、相互にけん制させる"],
+    ["ITガバナンス","経営陣がITの活用を方向づけ、監視する仕組み"]]},
+{s:"ファシリティマネジメント",l:"設備の管理。",
+ d:[["UPS","無停電電源装置。停電時に一時的に電力を供給し、安全にシャットダウンする時間を確保する"],
+    ["自家発電装置","長時間の停電に備える。UPSと組み合わせて使う"],
+    ["サージ防護","雷などによる過電圧から機器を守る"]]}
+],
+te:[
+{s:"基礎理論",l:"基数変換と論理演算。",
+ fx:[["2進数 → 10進数：各桁 × 2の累乗 を合計","1011₂ ＝ 8 ＋ 0 ＋ 2 ＋ 1 ＝ 11"],
+     ["nビットで表せる数 ＝ 2ⁿ 通り","8ビット ＝ 256通り（1バイト）"]],
+ d:[["AND（論理積）","両方が1のときだけ1"],
+    ["OR（論理和）","どちらか一方でも1なら1"],
+    ["XOR（排他的論理和）","2つが異なるときだけ1"],
+    ["NOT（否定）","0と1を反転する"]]},
+{s:"信頼性とストレージ",l:"稼働率の計算とRAID。",
+ fx:[["稼働率 ＝ MTBF ÷（MTBF ＋ MTTR）","MTBF：平均故障間隔、MTTR：平均修理時間"],
+     ["直列の稼働率 ＝ A × B","0.9 × 0.9 ＝ 0.81（両方動かないとダメ）"],
+     ["並列の稼働率 ＝ 1 −（1 − A）×（1 − B）","1 − 0.1 × 0.1 ＝ 0.99（どちらかが動けばよい）"]],
+ d:[["RAID0","ストライピング。分散して書き込み高速化。冗長性なし"],
+    ["RAID1","ミラーリング。同じデータを2台に書き込む"],
+    ["RAID5","データとパリティを分散して記録。1台故障しても復元できる"]],
+ tip:"並列は「全部止まる確率」を1から引く。直列は必ず元の稼働率より下がる。"},
+{s:"ハードウェアとデータ構造",l:"",
+ d:[["キャッシュメモリ","CPUと主記憶の速度差を埋める高速なメモリ"],
+    ["仮想記憶","補助記憶装置を使い、主記憶より大きな記憶領域があるように見せる"],
+    ["スタック","後入れ先出し（LIFO）"],
+    ["キュー","先入れ先出し（FIFO）"]]},
+{s:"ネットワーク",l:"主要なプロトコルと仕組み。",
+ d:[["DNS","ドメイン名とIPアドレスを対応付ける"],
+    ["DHCP","IPアドレスなどを自動で割り当てる"],
+    ["NAT","プライベートIPアドレスとグローバルIPアドレスを変換する"],
+    ["IPv4／IPv6","アドレス長は32ビット／128ビット"],
+    ["SMTP","メールの送信（転送）"],
+    ["POP3／IMAP","メールの受信。POP3は端末にダウンロード、IMAPはサーバ上で管理"],
+    ["LPWA","低消費電力で広域をカバーするIoT向け無線通信"]]},
+{s:"データベース",l:"関係データベースの基本。",
+ d:[["主キー","行を一意に識別する項目。重複・NULL不可"],
+    ["外部キー","他の表の主キーを参照し、表どうしを関連付ける"],
+    ["正規化","データの重複をなくし、更新時の不整合を防ぐために表を分割する"],
+    ["選択／射影／結合","行を取り出す／列を取り出す／複数の表をつなげる"]]},
+{s:"情報セキュリティ",l:"3要素・暗号・主な攻撃手法。",
+ d:[["機密性","許可された人だけがアクセスできる"],
+    ["完全性","情報が正確で、改ざんされていない"],
+    ["可用性","必要なときに使える"],
+    ["公開鍵暗号","暗号化は受信者の公開鍵、復号は受信者の秘密鍵"],
+    ["デジタル署名","送信者の秘密鍵で署名し、送信者の公開鍵で検証する。なりすましと改ざんを検知できる"],
+    ["フィッシング","偽のメールやサイトでID・パスワードなどを盗む"],
+    ["ランサムウェア","ファイルを暗号化して身代金を要求する"],
+    ["SQLインジェクション","入力欄に不正なSQL文を入れてデータベースを操作する"],
+    ["クロスサイトスクリプティング","Webページに不正なスクリプトを埋め込み、閲覧者のブラウザで実行させる"]],
+ tip:"暗号化は「相手の公開鍵」、署名は「自分の秘密鍵」。"},
+{s:"AI",l:"機械学習の3分類。",
+ d:[["教師あり学習","正解ラベル付きデータで学習し、予測や分類を行う"],
+    ["教師なし学習","正解ラベルなしで、データの構造やグループを見つける（クラスタリングなど）"],
+    ["強化学習","試行錯誤し、報酬が最大になる行動を学ぶ"]]}
+]
+};
+
+/* ===== 学習記録（この端末のブラウザ内に保存） ===== */
+const KEY="itpass-log-v1";
+let log={};
+try{log=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){log={}}
+function saveLog(){try{localStorage.setItem(KEY,JSON.stringify(log))}catch(e){}}
+function record(id,ok){const r=log[id]||{n:0,k:0,last:null};r.n++;if(ok)r.k++;r.last=ok?1:0;log[id]=r;saveLog()}
+
+function stats(f){
+  const qs=Q.filter(q=>!f||q.f===f);
+  let tried=0,n=0,k=0;
+  qs.forEach(q=>{const r=log[q.id];if(r){tried++;n+=r.n;k+=r.k}});
+  return {total:qs.length,tried,rate:n?k/n:null};
+}
+const wrongIds=()=>Q.filter(q=>log[q.id]&&log[q.id].last===0).map(q=>q.id);
+
+/* ===== 状態 ===== */
+let S={view:"home"};
+const app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+let timerId=null;
+
+function start(mode,f){
+  let pool;
+  if(mode==="field") pool=shuffle(Q.filter(q=>q.f===f));
+  else if(mode==="mock") pool=shuffle(Q).slice(0,20);
+  else if(mode==="review") pool=shuffle(Q.filter(q=>wrongIds().includes(q.id)));
+  else pool=shuffle(Q).slice(0,10);
+  if(!pool.length) return;
+  S={view:"quiz",mode,f,items:pool.map(q=>({id:q.id,order:shuffle([0,1,2,3]),pick:null})),i:0,t0:Date.now()};
+  clearInterval(timerId);
+  if(mode==="mock") timerId=setInterval(tick,1000);
+  render();
+}
+function tick(){const el=document.getElementById("timer");if(el)el.textContent=fmt(Date.now()-S.t0)}
+const fmt=ms=>{const s=Math.floor(ms/1000);return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")};
+
+function answer(pos){
+  const it=S.items[S.i]; if(it.pick!==null) return;
+  it.pick=it.order[pos];
+  record(it.id,it.pick===0);
+  render();
+}
+function next(){
+  if(S.i<S.items.length-1){S.i++;render();window.scrollTo({top:0})}
+  else{clearInterval(timerId);S.view="result";S.t1=Date.now();render();window.scrollTo({top:0})}
+}
+
+/* ===== 描画 ===== */
+function gauge(rate){
+  const r=46,c=2*Math.PI*r,p=rate==null?0:rate;
+  return `<svg class="gauge" viewBox="0 0 108 108" role="img" aria-label="総合正答率">
+    <circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--line)" stroke-width="9"/>
+    <circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round"
+      stroke-dasharray="${c*p} ${c}" transform="rotate(-90 54 54)"/>
+    <text x="54" y="54" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" fill="var(--ink)">${rate==null?"—":Math.round(p*100)}</text>
+    <text x="54" y="72" text-anchor="middle" font-size="10" fill="var(--muted)">${rate==null?"未回答":"% 正答"}</text>
+  </svg>`;
+}
+function fieldRows(){
+  return Object.keys(FIELDS).map(k=>{const s=stats(k);const w=s.rate==null?0:s.rate*100;
+    return `<div class="frow"><span>${FIELDS[k].name}</span>
+      <div class="bar"><i style="width:${w}%;background:${FIELDS[k].color}"></i><span class="pass" title="目安60%"></span></div>
+      <span class="v mono">${s.rate==null?"—":Math.round(w)+"%"}</span></div>`}).join("");
+}
+
+function home(){
+  const all=stats(),wr=wrongIds().length;
+  return `
+  <header class="top"><div><div class="label">IT PASSPORT · 演習</div><h1>ITパスポート演習帳</h1></div>
+    <div class="sub mono">収録 ${Q.length}問 / 回答済 ${all.tried}問</div></header>
+
+  <section class="panel summary" aria-label="学習状況">
+    ${gauge(all.rate)}
+    <div class="fields">${fieldRows()}
+      <div class="note">縦線は正答率60%の目安。本試験は総合600点以上、かつ各分野300点以上（いずれも1,000点満点）で合格です。</div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2>要点を読む</h2>
+    <div class="modes">
+      ${Object.keys(FIELDS).map(k=>`<button class="mode" data-act="notes" data-f="${k}"><span class="tag ${k}">${FIELDS[k].short}</span><strong>${FIELDS[k].name}のまとめ</strong><span>${NOTES[k].map(n=>n.s).join("・")}</span></button>`).join("")}
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2>演習を始める</h2>
+    <div class="modes">
+      <button class="mode" data-act="quick"><span class="tag all">全分野</span><strong>ランダム10問</strong><span>3分野から10問をまぜて出題。すき間時間の1セットに。</span></button>
+      <button class="mode" data-act="mock"><span class="tag all">全分野</span><strong>ミニ模試 20問</strong><span>経過時間を計測。本試験は100問120分なので、1問あたり約72秒が目安。</span></button>
+      <button class="mode" data-act="review" ${wr?"":"disabled style='opacity:.5;cursor:not-allowed'"}><span class="tag rv">復習</span><strong>間違えた問題 ${wr}問</strong><span>${wr?"直近で不正解だった問題だけを解き直します。":"不正解の問題がたまるとここから解き直せます。"}</span></button>
+    </div>
+    <div class="modes">
+      ${Object.keys(FIELDS).map(k=>{const s=stats(k);return `<button class="mode" data-act="field" data-f="${k}"><span class="tag ${k}">${FIELDS[k].short}</span><strong>${FIELDS[k].name}の問題</strong><span>${s.total}問 · 回答済 ${s.tried}問</span></button>`}).join("")}
+    </div>
+  </section>
+
+  <section class="panel info">
+    <h2>試験の概要</h2>
+    <dl>
+      <dt>出題数・時間</dt><dd>100問（四肢択一）／120分、CBT方式</dd>
+      <dt>分野</dt><dd>ストラテジ系・マネジメント系・テクノロジ系</dd>
+      <dt>合格基準</dt><dd>総合評価点600点以上／1,000点、かつ各分野300点以上／1,000点</dd>
+    </dl>
+    <p class="note" style="margin:12px 0 0">試験制度・シラバスは改訂されることがあります。受験前にIPA（情報処理推進機構）の公式サイトで最新情報を確認してください。<a href="https://www3.jitec.ipa.go.jp/JitesCbt/" target="_blank" rel="noopener" style="color:var(--accent)">ITパスポート試験 公式サイト</a></p>
+  </section>
+
+  <footer>
+    本サイトは個人が作成した非公式の学習教材で、IPA（独立行政法人情報処理推進機構）とは関係ありません。問題は学習用に作成したオリジナル問題です（過去問の転載ではありません）。内容の正確性には注意していますが、最新の出題範囲は公式のシラバスで確認してください。学習記録はこのブラウザ内にだけ保存され、他の端末とは共有されません。
+    <div class="resetline" id="reset">${S.confirmReset?`<span class="confirm">記録をすべて消去しますか？ <button class="btn ghost" data-act="doreset" style="padding:4px 10px">消去する</button><button class="btn ghost" data-act="cancelreset" style="padding:4px 10px">やめる</button></span>`:`<button class="linkbtn" data-act="askreset">学習記録をリセット</button>`}</div>
+  </footer>`;
+}
+
+function quiz(){
+  const it=S.items[S.i],q=Q[it.id],done=it.pick!==null,ok=it.pick===0;
+  const title=S.mode==="field"?FIELDS[S.f].name:S.mode==="mock"?"ミニ模試":S.mode==="review"?"復習":"ランダム10問";
+  return `
+  <header class="top"><div><div class="label">${esc(title)}</div><h1 class="mono" style="font-family:var(--f-mono)">問${S.i+1}<span class="muted" style="font-size:16px"> / ${S.items.length}</span></h1></div>
+    <div style="display:flex;gap:12px;align-items:center">${S.mode==="mock"?`<span class="timer mono">⏱ <span id="timer">${fmt(Date.now()-S.t0)}</span></span>`:""}
+    <button class="btn ghost" data-act="quit">中断</button></div></header>
+  <div class="progress"><i style="width:${(S.i+(done?1:0))/S.items.length*100}%"></i></div>
+  <article class="panel">
+    <div class="qhead"><span class="tag ${q.f}" style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px">${FIELDS[q.f].short}</span><span class="note">${esc(q.t)}</span></div>
+    <p class="qtext" style="margin-top:12px">${esc(q.q)}</p>
+    <div class="choices" role="group" aria-label="選択肢">
+      ${it.order.map((ci,pos)=>{let cls="";if(done){if(ci===0)cls="ok";else if(ci===it.pick)cls="ng"}
+        return `<button class="choice ${cls}" data-act="ans" data-pos="${pos}" ${done?"disabled":""}><span class="k">${KANA[pos]}</span><span>${esc(q.c[ci])}</span></button>`}).join("")}
+    </div>
+    ${done?`<div class="explain"><div class="verdict ${ok?"ok":"ng"}">${ok?"正解":"不正解"}　<span class="muted" style="font-size:14px;font-weight:700">正答：${KANA[it.order.indexOf(0)]}</span></div><p>${esc(q.e)}</p></div>
+    <div class="actions"><span></span><button class="btn primary" data-act="next" id="nextbtn">${S.i<S.items.length-1?"次の問題へ →":"結果を見る"}</button></div>`:""}
+  </article>
+  <p class="note">キーボード：1〜4 で選択、Enter で次へ</p>`;
+}
+
+function result(){
+  const n=S.items.length,k=S.items.filter(i=>i.pick===0).length;
+  const by={};S.items.forEach(i=>{const f=Q[i.id].f;by[f]=by[f]||{n:0,k:0};by[f].n++;if(i.pick===0)by[f].k++});
+  const wrong=S.items.filter(i=>i.pick!==0);
+  const time=S.mode==="mock"?`<div class="note mono">所要時間 ${fmt(S.t1-S.t0)}（1問あたり ${Math.round((S.t1-S.t0)/1000/n)}秒 / 目安72秒）</div>`:"";
+  return `
+  <header class="top"><div><div class="label">結果</div><h1>おつかれさまでした</h1></div></header>
+  <section class="panel" style="display:flex;flex-direction:column;gap:14px">
+    <div class="score"><span class="big">${k}</span><span class="mono muted" style="font-size:20px">/ ${n}</span><span style="margin-left:8px;font-weight:700">正答率 ${Math.round(k/n*100)}%</span></div>
+    ${time}
+    <div class="fields">${Object.keys(by).map(f=>{const w=by[f].k/by[f].n*100;return `<div class="frow"><span>${FIELDS[f].name}</span><div class="bar"><i style="width:${w}%;background:${FIELDS[f].color}"></i><span class="pass"></span></div><span class="v mono">${by[f].k}/${by[f].n}</span></div>`}).join("")}</div>
+  </section>
+  ${wrong.length?`<section class="panel"><h2>間違えた問題</h2><div class="wrong-list">${wrong.map(i=>{const q=Q[i.id];return `<div class="w"><b>${esc(q.q)}</b><span class="muted">正答：</span>${esc(q.c[0])}</div>`}).join("")}</div></section>`:`<section class="panel"><h2>全問正解</h2><p style="margin:8px 0 0">このセットはすべて正解でした。</p></section>`}
+  <div class="actions"><button class="btn ghost" data-act="home">ホームへ戻る</button>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">${wrong.length?`<button class="btn" data-act="review">間違えた問題を復習</button>`:""}<button class="btn primary" data-act="again">もう一度</button></div></div>`;
+}
+
+function notes(){
+  const f=S.f,list=NOTES[f],s=stats(f);
+  return `
+  <header class="top"><div><div class="label">要点まとめ</div><h1>${FIELDS[f].name}</h1></div>
+    <button class="btn ghost" data-act="home">ホームへ</button></header>
+  <div class="tabs" role="tablist">${Object.keys(FIELDS).map(k=>`<button class="tab" role="tab" aria-selected="${k===f}" style="--tc:${FIELDS[k].color}" data-act="notes" data-f="${k}">${FIELDS[k].short}</button>`).join("")}</div>
+  <nav class="toc" aria-label="目次">${list.map((n,i)=>`<a href="#n${i}" data-act="jump" data-i="${i}">${esc(n.s)}</a>`).join("")}</nav>
+  ${list.map((n,i)=>`
+  <section class="panel nsec" id="n${i}" style="--tc:${FIELDS[f].color}">
+    <h3><span class="no">${String(i+1).padStart(2,"0")}</span>${esc(n.s)}</h3>
+    ${n.l?`<p class="lead">${esc(n.l)}</p>`:""}
+    ${n.fx?n.fx.map(x=>`<div class="formula"><div class="fx">${esc(x[0])}</div>${x[1]?`<div class="ex">${esc(x[1])}</div>`:""}</div>`).join(""):""}
+    ${n.d?`<dl class="terms">${n.d.map(x=>`<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join("")}</dl>`:""}
+    ${n.tip?`<div class="tip"><b>ポイント</b>　${esc(n.tip)}</div>`:""}
+  </section>`).join("")}
+  <div class="panel" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div><strong>読んだら解いて確認</strong><div class="note">${FIELDS[f].name} ${s.total}問 · 回答済 ${s.tried}問</div></div>
+    <button class="btn primary" data-act="field" data-f="${f}">この分野の問題を解く →</button>
+  </div>`;
+}
+
+function render(){
+  app.innerHTML=S.view==="home"?home():S.view==="quiz"?quiz():S.view==="notes"?notes():result();
+  const nb=document.getElementById("nextbtn");if(nb)nb.focus({preventScroll:true});
+}
+
+app.addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+  const a=b.dataset.act;
+  if(a==="quick")start("quick");
+  else if(a==="mock")start("mock");
+  else if(a==="review")start("review");
+  else if(a==="field")start("field",b.dataset.f);
+  else if(a==="notes"){S={view:"notes",f:b.dataset.f};render();window.scrollTo({top:0})}
+  else if(a==="jump"){e.preventDefault();document.getElementById("n"+b.dataset.i)?.scrollIntoView({behavior:"smooth"})}
+  else if(a==="ans")answer(+b.dataset.pos);
+  else if(a==="next")next();
+  else if(a==="quit"||a==="home"){clearInterval(timerId);S={view:"home"};render()}
+  else if(a==="again")start(S.mode,S.f);
+  else if(a==="askreset"){S.confirmReset=true;render()}
+  else if(a==="cancelreset"){S.confirmReset=false;render()}
+  else if(a==="doreset"){log={};saveLog();S={view:"home"};render()}
+});
+document.addEventListener("keydown",e=>{
+  if(S.view!=="quiz")return;
+  const it=S.items[S.i];
+  if(it.pick===null&&["1","2","3","4"].includes(e.key))answer(+e.key-1);
+  else if(it.pick!==null&&e.key==="Enter"&&document.activeElement?.id!=="nextbtn"){e.preventDefault();next()}
+});
+render();
+</script>
+</body>
+</html>
